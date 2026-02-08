@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OptiX</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="LOGO-modified.png">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">
+            <img src="LOGO-modified.png" alt="logo de la compañia">      
+        </a>
+        <nav>
+            <a href="index.html" class="nav-link"><b><i>Inicio</i></b></a>
+            <a href="#" class="nav-link"><b><i>Sobre Mí</i></b></a>
+            <a href="#" class="nav-link"><b><i>Contacto</i></b></a>
+        </nav>
+    </header>
+
+<!-- JUEGOS "AGREGAR MAS" -->
+
+<div class="games">
+
+  <div class="game-card"
+       data-title="Pizza Delivery v0.1"
+       data-link="https://www.mediafire.com/file/okkaogdl5ngo8yy/Pizza_Delivery_v0.1.iso/file">
+    <div class="game-img" style="background-image: url('https://imgs.search.brave.com/sY-LsvrMSzoOMpLCjjpRNR75HL0iadBRwI5FAmmM73M/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hLnRo/dW1icy5yZWRkaXRt/ZWRpYS5jb20vcFRv/TUxieEo2dWtFZ3VL/NElJNkZXMGZmMG1U/c3gyN01CTzF4UVRS/R3UxMC5qcGc');"></div>
+    <div class="game-title">Pizza Delivery v0.1</div>
+  </div>
+
+  <div class="game-card"
+       data-title="Pizza Delivery v0.2"
+       data-link="https://www.mediafire.com/file/2ksvv35emcl0ndu/Pizza+Delivery+v0.2.iso/file">
+    <div class="game-img" style="background-image: url('https://imgs.search.brave.com/sY-LsvrMSzoOMpLCjjpRNR75HL0iadBRwI5FAmmM73M/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hLnRo/dW1icy5yZWRkaXRt/ZWRpYS5jb20vcFRv/TUxieEo2dWtFZ3VL/NElJNkZXMGZmMG1U/c3gyN01CTzF4UVRS/R3UxMC5qcGc');"></div>
+    <div class="game-title">Pizza Delivery v0.2</div>
+  </div>
+
+</div>
+
+<!-- JUEGOS "AGREGAR MAS" -->
+
+<div id="gameModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2 id="modalTitle">Nombre del juego</h2>
+
+    <p><b>Cómo instalar:</b><br>
+    EXTRAER CON ULTRAISO Y ABRIR EL ARCHIVO .EXE QUE CONTENGA EL .ISO</p>
+
+    <a id="modalLink" href="https://www.mediafire.com/file/okkaogdl5ngo8yy/Pizza+Delivery+v0.1.iso/file" target="_blank" class="download-btn">
+      DESCARGAR
+    </a>
+    <a id="modalYT" href="https://youtu.be/x3IkfhyYmVg" target="_blank" class="download-btn yt-btn">
+    TUTORIAL YOUTUBE
+    </a>
+  </div>
+</div>
+
+<!-- MODAL SCRIPT -->
+<script>
+const modal = document.getElementById("gameModal");
+const modalTitle = document.getElementById("modalTitle");
+const modalLink = document.getElementById("modalLink");
+const closeBtn = document.querySelector(".close");
+
+document.querySelectorAll(".game-card").forEach(card => {
+  card.addEventListener("click", () => {
+    modal.style.display = "flex";
+    modalTitle.textContent = card.dataset.title;
+    modalLink.href = card.dataset.link;
+  });
+});
+
+closeBtn.onclick = () => modal.style.display = "none";
+window.onclick = e => { if(e.target == modal) modal.style.display = "none"; }
+</script>
+<!-- MODAL SCRIPT -->
+
+</body>
+</html>

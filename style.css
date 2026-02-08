@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap');
+
+body{
+    font-family: "Zalando Sans Expanded", sans-serif;
+    margin: 0;
+    background-color: black;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+/* ================= HEADER ================= */
+
+header {
+    display: flex;
+    min-height: 70px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-image: url('Hacker.gif');
+    background-size: contain;
+    background-repeat: repeat;
+    background-position: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+/* degradado */
+header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.3) 0%,
+        rgba(0,0,0,0.5) 50%,
+        rgba(0,0,0,1) 100%
+    );
+    z-index: 0;
+}
+
+header * {
+    position: relative;
+    z-index: 1;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 80px;
+    width: 80px;
+    margin-left: 10px;
+    border-radius: 50%;
+    border: 2px solid #00e17a;
+    object-fit: cover;
+}
+
+nav a{
+    font-weight: 600;
+    padding-right: 10px;
+    font-size: 18px;
+}
+
+nav a:hover{
+    color: red;
+}
+
+/* ================= JUEGOS ================= */
+
+/* ================= JUEGOS ================= */
+
+.games {
+    display: grid;
+    grid-template-columns: repeat(6, 180px);
+    gap: 20px;
+    justify-content: start; /* 👈 se pegan al borde izquierdo */
+    margin: 20px 0;
+    padding-left: 20px; /* opcional, micro separación */
+}
+
+.game-card {
+    width: 180px;
+    background: #111;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 10px #000;
+    transition: 0.15s;
+    cursor: pointer;
+}
+
+.game-img {
+    width: 100%;
+    height: 200px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.game-title {
+    padding: 8px;
+    color: #00e17a;
+    font-weight: 700;
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.2;
+    word-break: break-word;
+}
+
+.game-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 18px #00e17a;
+}
+
+.game-card:active {
+    transform: scale(0.95);
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal-content {
+    background: #111;
+    padding: 20px;
+    border-radius: 12px;
+    width: 320px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 0 20px #00e17a;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.download-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px;
+    background: #00e17a;
+    color: black;
+    font-weight: bold;
+    border-radius: 6px;
+}
+
+p {
+  margin-bottom: 8px; /* espacio abajo de cada párrafo */
+}
