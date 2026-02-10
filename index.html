@@ -14,10 +14,19 @@
         </a>
         <nav>
             <a href="index.html" class="nav-link"><b><i>Inicio</i></b></a>
-            <a href="#" class="nav-link"><b><i>Sobre Mí</i></b></a>
-            <a href="#" class="nav-link"><b><i>Contacto</i></b></a>
+            <a href="javascript:void(0)" onclick="openAbout()" class="nav-link"><b><i>Sobre Mí</i></b></a>
+            <a href="#" id="contactBtn" class="nav-link"><b><i>Contacto</i></b></a>
         </nav>
     </header>
+
+<!-- BARRA DE BUSQUEDA -->
+
+<div class="search-box">
+  <input type="text" id="searchInput" placeholder="Buscar juego...">
+</div>
+
+<!-- BARRA DE BUSQUEDA -->
+
 
 <!-- JUEGOS "AGREGAR MAS" -->
 
@@ -32,7 +41,7 @@
 
   <div class="game-card"
        data-title="Pizza Delivery v0.2"
-       data-link="https://www.mediafire.com/file/2ksvv35emcl0ndu/Pizza+Delivery+v0.2.iso/file">
+       data-link="https://www.mediafire.com/file/2ksvv35emcl0ndu/Pizza+Delivery+v0.2.iso/file">      
     <div class="game-img" style="background-image: url('https://imgs.search.brave.com/sY-LsvrMSzoOMpLCjjpRNR75HL0iadBRwI5FAmmM73M/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hLnRo/dW1icy5yZWRkaXRt/ZWRpYS5jb20vcFRv/TUxieEo2dWtFZ3VL/NElJNkZXMGZmMG1U/c3gyN01CTzF4UVRS/R3UxMC5qcGc');"></div>
     <div class="game-title">Pizza Delivery v0.2</div>
   </div>
@@ -42,6 +51,13 @@
        data-link="https://drive.google.com/file/d/1QqoM2IEIk9TQ0HLHr85Tax1MsB3lGnB2/view?usp=drive_link">
     <div class="game-img" style="background-image: url('https://files.catbox.moe/9lj8oi.jpg');"></div>
     <div class="game-title">Sneak Thief v0.99</div>
+  </div>
+
+  <div class="game-card"
+       data-title="My Voice Zoo"
+       data-link="https://drive.google.com/file/d/1MyFcA8bTCI5tazKqzXe10kWyOhJnXQ6t/view?usp=drive_link">
+    <div class="game-img" style="background-image: url('https://imgs.search.brave.com/ecGH_mfLZL5AFzl9Lu6bj9q_Cz22SbvSKuDbD5aZVnA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMtc2cud2ludWRm/LmNvbS93dXBsb2Fk/L3h5L2Fwcm9qZWN0/YWRtaW4vajRyTGR1/Q1kuanBnP2ltYWdl/TW9ncjIvdGh1bWJu/YWlsLzYwMHg');"></div>
+    <div class="game-title">My Voice Zoo</div>
   </div>
 
 </div>
@@ -54,7 +70,7 @@
     <h2 id="modalTitle">Nombre del juego</h2>
 
     <p><b>Cómo instalar:</b><br>
-    EXTRAER CON ULTRAISO Y ABRIR EL ARCHIVO .EXE QUE CONTENGA EL .ISO</p>
+    EXTRAER CON WINRAR O ULTRAISO <p><b>(DEPENDE EN QUE FORMATO ESTÉ)</b></p> Y ABRIR EL ARCHIVO .EXE QUE CONTENGA LA CARPETA</p>
 
     <a id="modalLink" href="https://www.mediafire.com/file/okkaogdl5ngo8yy/Pizza+Delivery+v0.1.iso/file" target="_blank" class="download-btn">
       DESCARGAR
@@ -84,6 +100,101 @@ closeBtn.onclick = () => modal.style.display = "none";
 window.onclick = e => { if(e.target == modal) modal.style.display = "none"; }
 </script>
 <!-- MODAL SCRIPT -->
+
+<!-- BARRA DE BUSQUEDA SCRIPT -->
+<script>
+const searchInput = document.getElementById("searchInput");
+
+searchInput.addEventListener("keyup", () => {
+  const value = searchInput.value.toLowerCase();
+
+  document.querySelectorAll(".game-card").forEach(card => {
+    const title = card.dataset.title.toLowerCase();
+
+    if (title.includes(value)) {
+      card.classList.remove("hidden");
+    } else {
+      card.classList.add("hidden");
+    }
+  });
+});
+</script>
+<!-- BARRA DE BUSQUEDA SCRIPT -->
+
+<!-- SOBRE MI SCRIPT -->
+<script>
+function openAbout() {
+  document.getElementById("aboutModal").style.display = "block";
+}
+
+function closeAbout() {
+  document.getElementById("aboutModal").style.display = "none";
+}
+
+window.onclick = function(e) {
+  if (e.target.id === "aboutModal") {
+    closeAbout();
+  }
+}
+</script>
+<!-- SOBRE MI SCRIPT -->
+
+<!-- BOTON DE DONAR -->
+<div class="donate-box">
+  <a target="_blank" class="donate-btn">TIBURON.IS.AR</a>
+    <p class="donate-method">(Banco Nación)</p>
+</div>
+<!-- BOTON DE DONAR -->
+
+<!-- SOBRE MI -->
+<div id="aboutModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeAbout()">&times;</span>
+    <h2>Sobre Mí</h2>
+    <p>
+      Hola👋🏼, Soy <b>OptiX</b> 🎮<br><br>
+      Optimizo juegos para PCs de bajos recursos, bajo gráficos,
+      quito archivos innecesarios y hago que corran en compus viejas o del gobierno.<br><br>
+      Subo gameplays, configs gráficas y versiones livianas para jugar sin lag.
+    </p>
+  </div>
+</div>
+<!-- SOBRE MI -->
+
+<!-- CONTACTO -->
+<div id="contactModal" class="modal">
+  <div class="modal-content">
+    <h2>Contacto</h2>
+
+    <a href="https://www.instagram.com/optix.reborn/" target="_blank" class="download-btn">📸 Instagram</a>
+
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=optixreborn@gmail.com" target="_blank" class="download-btn yt-btn">✉ Correo Electronico</a>
+
+    <a href="https://whatsapp.com/channel/0029VbC5NcyFsn0fkmeZHA13" target="_blank" class="download-btn">💻Canal De WhatsApp</a>
+
+    <a href="https://www.youtube.com/@OptiX-XX" target="_blank" class="download-btn">👁‍🗨Youtube</a>
+  </div>
+</div>
+<!-- CONTACTO -->
+
+<!-- CONTACTO SCRIPT -->
+<script>
+const contactModal = document.getElementById("contactModal");
+const contactBtn = document.getElementById("contactBtn");
+const closeContact = document.querySelector(".close-contact");
+
+contactBtn.addEventListener("click", function(e){
+  e.preventDefault();
+  contactModal.style.display = "flex";
+});
+
+closeContact.onclick = () => contactModal.style.display = "none";
+
+window.addEventListener("click", e => {
+  if(e.target == contactModal) contactModal.style.display = "none";
+});
+</script>
+<!-- CONTACTO SCRIPT -->
 
 </body>
 </html>
